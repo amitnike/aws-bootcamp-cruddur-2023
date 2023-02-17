@@ -34,6 +34,10 @@ Using CLI subscribe to topic
 
 ![image](https://user-images.githubusercontent.com/18515029/219692290-b1dfecc1-3be3-4197-8303-6f584b4f59e1.png)
 
+Create Budget using CLI 
+![image](https://user-images.githubusercontent.com/18515029/219697552-dd3c4978-c8c6-46bc-a403-928fc62cc817.png)
+
+![image](https://user-images.githubusercontent.com/18515029/219697658-89584627-10e4-4560-b4ea-d2bac606e877.png)
 
 
 
