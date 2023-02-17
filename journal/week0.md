@@ -9,3 +9,9 @@ Now setup the billing alarm
 
 ![image](https://user-images.githubusercontent.com/18515029/219447152-1f81cbb3-0a8f-40fe-be6b-c5fd2fdb82ae.png)
 
+
+Setup MFA
+
+![image](https://user-images.githubusercontent.com/18515029/219618349-7145f1a3-261c-4833-b3d7-1cec232289a9.png)
+
+
