@@ -34,10 +34,16 @@ Using CLI subscribe to topic
 
 ![image](https://user-images.githubusercontent.com/18515029/219692290-b1dfecc1-3be3-4197-8303-6f584b4f59e1.png)
 
+Using CLI - create Alarm
+
+![image](https://user-images.githubusercontent.com/18515029/219699231-98276155-768e-4961-a55d-9a38fc68069f.png)
+
+![image](https://user-images.githubusercontent.com/18515029/219699453-80eba146-b9c4-4225-b4c1-e1109033b2ec.png)
+
+
 Create Budget using CLI 
 ![image](https://user-images.githubusercontent.com/18515029/219697552-dd3c4978-c8c6-46bc-a403-928fc62cc817.png)
 
 ![image](https://user-images.githubusercontent.com/18515029/219697658-89584627-10e4-4560-b4ea-d2bac606e877.png)
-
 
 
