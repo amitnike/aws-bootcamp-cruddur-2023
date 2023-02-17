@@ -18,3 +18,11 @@ Setup MFA
 Create a user..add to a group..Group with admin policy
 
 ![image](https://user-images.githubusercontent.com/18515029/219648915-345dba30-da15-4fad-8fcf-cdb857f4a190.png)
+
+
+Use Cloudshell and Install AWS CLI
+
+![image](https://user-images.githubusercontent.com/18515029/219652571-6ddce8c0-bedc-4c18-b500-d861a93a0d2a.png)
+
+![image](https://user-images.githubusercontent.com/18515029/219652646-37d45183-c62c-4579-a9a5-ed0391f6af0e.png)
+
