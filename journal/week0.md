@@ -26,3 +26,14 @@ Use Cloudshell and Install AWS CLI
 
 ![image](https://user-images.githubusercontent.com/18515029/219652646-37d45183-c62c-4579-a9a5-ed0391f6af0e.png)
 
+Using CLI create topic
+
+![image](https://user-images.githubusercontent.com/18515029/219692094-849239a9-a775-4fa9-a0ca-7ef5a2c8f668.png)
+
+Using CLI subscribe to topic
+
+![image](https://user-images.githubusercontent.com/18515029/219692290-b1dfecc1-3be3-4197-8303-6f584b4f59e1.png)
+
+
+
+
