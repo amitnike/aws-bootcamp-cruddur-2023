@@ -1,6 +1,7 @@
 Cruddur Arhitecture Diagram 
 
-https://lucid.app/lucidchart/ae6565d5-a5ce-4bec-a573-a0e5da7c4106/edit?invitationId=inv_3ef3e951-2d9b-4af0-a44b-c9fa7ec278c4
+
+https://lucid.app/lucidchart/ae6565d5-a5ce-4bec-a573-a0e5da7c4106/edit?viewport_loc=-1583%2C-696%2C2139%2C1040%2C0_0&invitationId=inv_3ef3e951-2d9b-4af0-a44b-c9fa7ec278c4
 
 
 # Week 0 — Billing and Architecture
