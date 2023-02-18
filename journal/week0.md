@@ -56,4 +56,8 @@ Create Budget using CLI
 
 ![image](https://user-images.githubusercontent.com/18515029/219697658-89584627-10e4-4560-b4ea-d2bac606e877.png)
 
+Eventbridge Hands on attempt - EC2 service health with SNS topic
 
+![image](https://user-images.githubusercontent.com/18515029/219856970-a17f5b8b-ba18-4f46-b646-06ff0a885be6.png)
+
+Used the existing billing topic, didnt create a new one
