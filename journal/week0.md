@@ -7,6 +7,10 @@ Cruddur Conceptual Diagram
 
 https://lucid.app/lucidchart/f9753243-3765-4788-9857-2d70359bd5d3/edit?viewport_loc=-2045%2C-659%2C2120%2C1031%2C0_0&invitationId=inv_576afef7-c3c7-4ac9-8db8-e8448ec36faa
 
+CI-CD Pipeline / CAT pipeline :)
+
+https://lucid.app/lucidchart/2397ac7c-8726-47ad-b906-fb05111af7cf/edit?viewport_loc=-11%2C101%2C2120%2C1031%2C0_0&invitationId=inv_9cf06208-0c5c-462b-86cd-7427f51dfe78
+
 
 # Week 0 — Billing and Architecture
 
