@@ -1,4 +1,41 @@
-# Week 1 — App Containerization
+# Week 1 — App 
+
+# Home Work Tasks -:
+
+## Install Doker desktop on Ubuntu
+
+### Set up the docker package repo
+
+''
+sudo apt-get update
+sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+    
+sudo mkdir -m 0755 -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  
+'''
+
+### Download Package and install
+
+First download the package
+
+sudo apt-get update
+sudo apt-get install ./docker-desktop-<version>-<arch>.deb
+
+### Running the application on local
+
+![image](https://user-images.githubusercontent.com/18515029/220299997-d2f1eb82-ade2-4b61-9b00-5d9f34aa182c.png)
+
+
+# Online class work
 
 ## Add new backend endpoint by updating OPENAPI spec file
 
