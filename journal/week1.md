@@ -6,7 +6,7 @@
 
 ### Set up the docker package repo
 
-''
+```
 sudo apt-get update
 sudo apt-get install \
     ca-certificates \
@@ -21,7 +21,7 @@ echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
   
-'''
+```
 
 ### Download Package and install
 
