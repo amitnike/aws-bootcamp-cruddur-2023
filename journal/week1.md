@@ -45,3 +45,7 @@ aws dynamodb create-table \
 
 
 ## Run Postgres
+
+Running the postgres 
+
+![image](https://user-images.githubusercontent.com/18515029/220298000-e1598718-e3ae-4e32-9175-80efec027c25.png)
