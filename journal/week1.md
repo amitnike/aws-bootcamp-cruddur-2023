@@ -15,8 +15,9 @@
 
 ## Run DynamoDB
 
-### Create the table / Add new item in table / Query the table
+### Create the table / Add new item in table / List the tables/ Query the table
 
+ ```
 aws dynamodb create-table \
     --endpoint-url http://localhost:8000 \
     --table-name Music \
@@ -38,6 +39,7 @@ aws dynamodb create-table \
  
  aws dynamodb scan --table-name Music --query "Items" --endpoint-url http://localhost:8000
 
+ ```
 
 ![image](https://user-images.githubusercontent.com/18515029/220249184-6cf8249d-75e1-40f9-930d-e161280570e9.png)
 
