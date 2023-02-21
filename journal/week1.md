@@ -9,11 +9,15 @@
 ![image](https://user-images.githubusercontent.com/18515029/220246991-7f27a324-3063-4a0b-a4db-e787033d0ab4.png)
 
 
-## Successfully containerized the app using dockerfile 
-## Run the app using docker compose 
+## Successfully containerized the app using dockerfile. Run the app using docker compose 
 
 ![image](https://user-images.githubusercontent.com/18515029/220247332-e7a19f88-3a57-4ae1-9227-4af135cee103.png)
 
 ##Run DynamoDB
+
+###Create the table / Add new item in table / Query the table
+
+![image](https://user-images.githubusercontent.com/18515029/220249184-6cf8249d-75e1-40f9-930d-e161280570e9.png)
+
 
 ##Run Postgres
