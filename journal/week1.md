@@ -25,10 +25,13 @@ echo \
 
 ### Download Package and install
 
+```
 First download the package
 
 sudo apt-get update
 sudo apt-get install ./docker-desktop-<version>-<arch>.deb
+
+```
 
 ### Running the application on local
 
