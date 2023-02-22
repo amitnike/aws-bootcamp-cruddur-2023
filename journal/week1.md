@@ -88,6 +88,12 @@ docker push amitnike/hello-docker-world:0.0.1
 
 ![image](https://user-images.githubusercontent.com/18515029/220569732-c41b2a47-f99b-4703-8504-bf2856ed773d.png)
 
+### Implement health check in docker-compose
+
+Check the newly commited folder health-check.
+It pull nginx images and copies hello-world index.html in container
+
+![image](https://user-images.githubusercontent.com/18515029/220592497-1ce164ab-7f18-4e00-85ea-ff194fdad0f3.png)
 
 
 # Online class work
