@@ -39,6 +39,8 @@ sudo apt-get install ./docker-desktop-<version>-<arch>.deb
 
 ## Hands-on docker with spring-boot app
 
+https://github.com/amitnike/aws-bootcamp-cruddur-2023/tree/main/hello-world-rest-api
+
 ### Prepare the sample spring boot and add dockerfile with below contents
 
 ```
@@ -95,6 +97,9 @@ It pull nginx images and copies hello-world index.html in container
 
 ![image](https://user-images.githubusercontent.com/18515029/220592497-1ce164ab-7f18-4e00-85ea-ff194fdad0f3.png)
 
+### Multistage spring boot app
+
+https://github.com/amitnike/aws-bootcamp-cruddur-2023/tree/main/hello-world-rest-api-multistage
 
 # Online class work
 
