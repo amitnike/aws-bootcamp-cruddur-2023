@@ -33,7 +33,7 @@ sudo apt-get install ./docker-desktop-<version>-<arch>.deb
 
 ```
 
-### Running the application on local
+### Running the docker on local
 
 ![image](https://user-images.githubusercontent.com/18515029/220299997-d2f1eb82-ade2-4b61-9b00-5d9f34aa182c.png)
 
@@ -72,6 +72,7 @@ http://localhost:8080/hello-world
 ### Push the iamge to remote repo
 
 ### First set up the connectivity with docker hub usig pass init
+
 https://docs.docker.com/desktop/get-started/#credentials-management-for-linux-users
 
 ### Docker hub connection is success
