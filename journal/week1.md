@@ -37,6 +37,57 @@ sudo apt-get install ./docker-desktop-<version>-<arch>.deb
 
 ![image](https://user-images.githubusercontent.com/18515029/220299997-d2f1eb82-ade2-4b61-9b00-5d9f34aa182c.png)
 
+## Hands-on docker with spring-boot app
+
+### Prepare the sample spring boot and add dockerfile with below contents
+
+```
+FROM openjdk:8-jdk-alpine
+EXPOSE  8080
+ADD target/hello-world-rest-api.jar hello-world-rest-api.jar
+ENTRYPOINT ["sh", "-c", "java -jar /hello-world-rest-api.jar"]
+
+```
+### Build the docker image and tag it
+
+```
+docker build -t amitnike/hello-docker-world:0.0.1 .
+```
+![image](https://user-images.githubusercontent.com/18515029/220566237-235ed325-6835-4953-af60-4528c9e29a7e.png)
+
+### Run the images
+
+```
+docker run -p 8080:8080 amitnike/hello-docker-world:0.0.1
+```
+![image](https://user-images.githubusercontent.com/18515029/220566580-1155ebdf-f7bd-46f8-b461-4f96a957f4e8.png)
+
+### Test the app with browser URL
+
+```
+http://localhost:8080/hello-world
+```
+![image](https://user-images.githubusercontent.com/18515029/220564840-0506e2a8-0a5f-4b3b-a4a8-5aef45de2128.png)
+
+### Push the iamge to remote repo
+
+### First set up the connectivity with docker hub usig pass init
+https://docs.docker.com/desktop/get-started/#credentials-management-for-linux-users
+
+### Docker hub connection is success
+
+![image](https://user-images.githubusercontent.com/18515029/220569089-f5c90712-c0e8-41c9-b719-a2b5c4b3e3da.png)
+
+### Push the image to docker hub
+
+```
+docker push amitnike/hello-docker-world:0.0.1
+```
+![image](https://user-images.githubusercontent.com/18515029/220569604-34ce6760-948a-4f3a-84b5-7e7038d59951.png)
+
+![image](https://user-images.githubusercontent.com/18515029/220569732-c41b2a47-f99b-4703-8504-bf2856ed773d.png)
+
+
 
 # Online class work
 
