@@ -135,7 +135,8 @@ docker run -p 8080:8080 amitnike/hello-docker-world:0.0.1
   
 ### Verify the running image..First update security group to access http
 
-![image](https://user-images.githubusercontent.com/18515029/221089442-d606f698-8033-4543-aff3-5e622513084c.png)
+![image](https://user-images.githubusercontent.com/18515029/221090028-cc999194-a692-4c70-b208-430e98269142.png)
+
 
 ![image](https://user-images.githubusercontent.com/18515029/221089484-261c4f5f-d050-40c2-a220-0623bba4174e.png)
 
