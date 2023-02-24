@@ -105,13 +105,42 @@ https://github.com/amitnike/aws-bootcamp-cruddur-2023/tree/main/hello-world-rest
 
 ![image](https://user-images.githubusercontent.com/18515029/221087057-b1a72b59-1400-4490-9d76-5a5e2038e613.png)
 
-## Login to instance and docker installation
+## Login to instance and docker installation + running my image
 
  ```
- 
+ chmod 400 my-ec2-key.pem 
+ssh -i "my-ec2-key.pem" ec2-user@ec2-44-212-49-198.compute-1.amazonaws.com
+
+update all package
+sudo yum update
+
+install docker
+sudo amazon-linux-extras install docker
+
+start the service
+sudo service docker start
+
+add ec2-user to docker group
+sudo usermod -a -G docker ec2-user
+
+Login into new terminal & verify docker installation
+docker info 
+
+pull image from my repo
+docker pull amitnike/hello-docker-world:0.0.1
+
+docker run -p 8080:8080 amitnike/hello-docker-world:0.0.1
  
   ```
+  
+### Verify the running image..First update security group to access http
 
+![image](https://user-images.githubusercontent.com/18515029/221089442-d606f698-8033-4543-aff3-5e622513084c.png)
+
+![image](https://user-images.githubusercontent.com/18515029/221089484-261c4f5f-d050-40c2-a220-0623bba4174e.png)
+
+ 
+ 
 # Online class work
 
 ## Add new backend endpoint by updating OPENAPI spec file
