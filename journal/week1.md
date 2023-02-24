@@ -101,6 +101,17 @@ It pull nginx images and copies hello-world index.html in container
 
 https://github.com/amitnike/aws-bootcamp-cruddur-2023/tree/main/hello-world-rest-api-multistage
 
+### Launch EC2 instnce
+
+![image](https://user-images.githubusercontent.com/18515029/221087057-b1a72b59-1400-4490-9d76-5a5e2038e613.png)
+
+## Login to instance and docker installation
+
+ ```
+ 
+ 
+  ```
+
 # Online class work
 
 ## Add new backend endpoint by updating OPENAPI spec file
