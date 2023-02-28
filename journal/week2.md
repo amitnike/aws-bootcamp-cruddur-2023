@@ -1,10 +1,93 @@
 # Week 2 — Distributed Tracing
 
+## AWS X-Ray
+
+Update requirements.txt to add dependency and install using 
+
+```
+aws-xray-sdk
+
+pip install -r requirements.txt
+
+```
+Update docker-compose.yml
+
+```
+ENV Variable 
+
+      AWS_XRAY_URL: "*4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}*"
+      AWS_XRAY_DAEMON_ADDRESS: "xray-daemon:2000"
+      
+X-ray Daemon
+
+  xray-daemon:
+    image: "amazon/aws-xray-daemon"
+    environment:
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+      AWS_REGION: "ap-south-1"
+    command:
+      - "xray -o -b xray-daemon:2000"
+    ports:
+      - 2000:2000/udp
+
+```
+### Update application code
+
+```
+update app.py
+
+# AWS X-ray Instrumentation
+from aws_xray_sdk.core import xray_recorder
+from aws_xray_sdk.ext.flask.middleware import XRayMiddleware
+
+#Initialization
+xray_url = os.getenv("AWS_XRAY_URL")
+xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
+
+#AWS X-ray
+XRayMiddleware(app, xray_recorder)
+
+update service endpoint to add logging with segments/subsegments
+
+from aws_xray_sdk.core import xray_recorder
+
+    subsegment = xray_recorder.begin_subsegment('user_activities_subsegment')
+    model = {
+      'errors': None,
+      'data': None
+    }
+
+    now = datetime.now(timezone.utc).astimezone()
+
+    #segment.put_metadata('key', dict, 'namespace')
+    subsegment.put_annotation('key', 'value')
+    
+    
+    xray_recorder.end_subsegment()
+
+```
+
+### Create AWS group and sampling rules and view the logs
+
+```
+aws xray create-group \
+   --group-name "Cruddur" \
+   --filter-expression "service(\"backend-flask\")"
+
+aws xray create-sampling-rule --cli-input-json file://aws/json/x-ray.json
+
+```
+### Capture segments and subsegments
+
+![image](https://user-images.githubusercontent.com/18515029/221754108-48f059d7-d84d-43fe-bca5-217fee3910fb.png)
+
+
 ## Rollbar 
 
 ### Installation
 
-Update requirements.txt to add dependency
+Update requirements.txt to add dependency and install them
 
 ```
 blinker
