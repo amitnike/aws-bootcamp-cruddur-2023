@@ -1,5 +1,83 @@
 # Week 2 — Distributed Tracing
 
+## Honeycomb
+
+### Installation and instrumentation
+
+
+```
+update Requirements.txt
+
+opentelemetry-api 
+opentelemetry-sdk 
+opentelemetry-exporter-otlp-proto-http 
+opentelemetry-instrumentation-flask 
+opentelemetry-instrumentation-requests
+
+
+```
+
+### Application code changes 
+
+```
+imports in app.py
+
+# Honeycomb updates
+from opentelemetry import trace
+from opentelemetry.instrumentation.flask import FlaskInstrumentor
+from opentelemetry.instrumentation.requests import RequestsInstrumentor
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+from opentelemetry.sdk.trace import TracerProvider
+from opentelemetry.sdk.trace.export import BatchSpanProcessor
+
+# Initialize tracing and an exporter that can send data to Honeycomb
+provider = TracerProvider()
+processor = BatchSpanProcessor(OTLPSpanExporter())
+provider.add_span_processor(processor)
+trace.set_tracer_provider(provider)
+tracer = trace.get_tracer(__name__)
+
+# Honeycomb Initialize automatic instrumentation with Flask
+FlaskInstrumentor().instrument_app(app)
+RequestsInstrumentor().instrument()
+
+```
+### update docker-compose.yml to env variables
+
+```
+      OTEL_EXPORTER_OTLP_ENDPOINT: "https://api.honeycomb.io"
+      OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${HONEYCOMB_API_KEY}"
+      OTEL_SERVICE_NAME: "backend_flask"
+      
+```
+
+### Update service endpoint to set trace and span..with customer attributes
+
+```
+from opentelemetry import trace
+
+with tracer.start_as_current_span("home-activities-mock-data"):
+      span = trace.get_current_span();
+      now = datetime.now(timezone.utc).astimezone()
+      span.set_attribute("app.now", now.isoformat())
+      
+      //existing serivce logic
+      
+ 
+ span.set_attribute("app.results_length",len(results))
+
+```
+
+### View the traces on HoneyComb UI
+
+![image](https://user-images.githubusercontent.com/18515029/221756901-4c85ed13-c2f8-4f0f-943b-362642447de6.png)
+
+![image](https://user-images.githubusercontent.com/18515029/221756996-46f88850-6d3e-43ab-b419-09af0aff4015.png)
+
+![image](https://user-images.githubusercontent.com/18515029/221758317-8dd3fc91-0ba0-4574-b863-7e82e6c5ffa9.png)
+
+
+
 ## AWS X-Ray
 
 Update requirements.txt to add dependency and install using 
