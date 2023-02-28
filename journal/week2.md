@@ -83,6 +83,48 @@ aws xray create-sampling-rule --cli-input-json file://aws/json/x-ray.json
 ![image](https://user-images.githubusercontent.com/18515029/221754108-48f059d7-d84d-43fe-bca5-217fee3910fb.png)
 
 
+## AWS CloudWatch
+
+### Add dependency
+
+```
+watchtower
+
+```
+### Update application code
+
+```
+app.py changes 
+
+#watchTower..cloudwatch logs
+import watchtower
+import logging
+from time import strftime
+
+# Configuring Logger to Use CloudWatch
+LOGGER = logging.getLogger(__name__)
+LOGGER.setLevel(logging.DEBUG)
+console_handler = logging.StreamHandler()
+cw_handler = watchtower.CloudWatchLogHandler(log_group='cruddur')
+LOGGER.addHandler(console_handler)
+LOGGER.addHandler(cw_handler)
+LOGGER.info("inside app.oy message")
+
+@app.after_request
+def after_request(response):
+    timestamp = strftime('[%Y-%b-%d %H:%M]')
+    LOGGER.error('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
+    return response
+    
+Application service changes
+
+logger.info("HomeAHello Cloudwatch! from  /api/activities/homectivities")
+
+```
+### Check cloud watch logs
+
+
+
 ## Rollbar 
 
 ### Installation
