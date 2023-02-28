@@ -123,6 +123,7 @@ logger.info("HomeAHello Cloudwatch! from  /api/activities/homectivities")
 ```
 ### Check cloud watch logs
 
+![image](https://user-images.githubusercontent.com/18515029/221756327-6b73f252-173d-42cb-a1fc-1a4d3af6cfff.png)
 
 
 ## Rollbar 
