@@ -18,67 +18,76 @@ export default function HomeFeedPage() {
   const [user, setUser] = React.useState(null);
   const dataFetchedRef = React.useRef(false);
 
-  const loadData = async () => {
-    try {
-      const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/home`
-      const res = await fetch(backend_url, {
-        method: "GET"
-      });
-      let resJson = await res.json();
-      if (res.status === 200) {
-        setActivities(resJson)
-      } else {
-        console.log(res)
+  const opentelemetry = require("@opentelemetry/api");
+  const tracer = opentelemetry.trace.getTracer("homefeed_trace");
+
+  tracer.startActiveSpan('main', (span) => {
+    span.setAttribute('app.username', "my_name");
+
+    const loadData = async () => {
+      try {
+        const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/home`
+        const res = await fetch(backend_url, {
+          method: "GET"
+        });
+        let resJson = await res.json();
+        if (res.status === 200) {
+          setActivities(resJson)
+        } else {
+          console.log(res)
+        }
+      } catch (err) {
+        console.log(err);
       }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+    };
 
-  const checkAuth = async () => {
-    console.log('checkAuth')
-    // [TODO] Authenication
-    if (Cookies.get('user.logged_in')) {
-      setUser({
-        display_name: Cookies.get('user.name'),
-        handle: Cookies.get('user.username')
-      })
-    }
-  };
+    const checkAuth = async () => {
+      console.log('checkAuth')
+      // [TODO] Authenication
+      if (Cookies.get('user.logged_in')) {
+        setUser({
+          display_name: Cookies.get('user.name'),
+          handle: Cookies.get('user.username')
+        })
+      }
+    };
 
-  React.useEffect(()=>{
-    //prevents double call
-    if (dataFetchedRef.current) return;
-    dataFetchedRef.current = true;
+    React.useEffect(()=>{
+      //prevents double call
+      if (dataFetchedRef.current) return;
+      dataFetchedRef.current = true;
 
-    loadData();
-    checkAuth();
-  }, [])
+      loadData();
+      checkAuth();
+    }, [])
 
-  return (
-    <article>
-      <DesktopNavigation user={user} active={'home'} setPopped={setPopped} />
-      <div className='content'>
-        <ActivityForm  
-          popped={popped}
-          setPopped={setPopped} 
-          setActivities={setActivities} 
-        />
-        <ReplyForm 
-          activity={replyActivity} 
-          popped={poppedReply} 
-          setPopped={setPoppedReply} 
-          setActivities={setActivities} 
-          activities={activities} 
-        />
-        <ActivityFeed 
-          title="Home" 
-          setReplyActivity={setReplyActivity} 
-          setPopped={setPoppedReply} 
-          activities={activities} 
-        />
-      </div>
-      <DesktopSidebar user={user} />
-    </article>
-  );
+    return (
+      <article>
+        <DesktopNavigation user={user} active={'home'} setPopped={setPopped} />
+        <div className='content'>
+          <ActivityForm  
+            popped={popped}
+            setPopped={setPopped} 
+            setActivities={setActivities} 
+          />
+          <ReplyForm 
+            activity={replyActivity} 
+            popped={poppedReply} 
+            setPopped={setPoppedReply} 
+            setActivities={setActivities} 
+            activities={activities} 
+          />
+          <ActivityFeed 
+            title="Home" 
+            setReplyActivity={setReplyActivity} 
+            setPopped={setPoppedReply} 
+            activities={activities} 
+          />
+        </div>
+        <DesktopSidebar user={user} />
+      </article>
+    );
+
+    span.end();
+  });
 }
