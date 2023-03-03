@@ -7,7 +7,7 @@ import ActivityFeed from '../components/ActivityFeed';
 import ActivityForm from '../components/ActivityForm';
 import ReplyForm from '../components/ReplyForm';
 
-import { trace, context } from '@opentelemetry/api';
+import { trace } from '@opentelemetry/api';
 
 // [TODO] Authenication
 import Cookies from 'js-cookie'
