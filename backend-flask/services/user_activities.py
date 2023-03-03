@@ -5,11 +5,11 @@ class UserActivities:
   def run(user_handle):
     # x-ray segment
     # segment = xray_recorder.begin_segment('user_activities')
-    subsegment = xray_recorder.begin_subsegment('user_activities_subsegment')
-    # model = {
-    #   'errors': None,
-    #   'data': None
-    # }
+    # subsegment = xray_recorder.begin_subsegment('user_activities_subsegment')
+    model = {
+      'errors': None,
+      'data': None
+    }
 
     # now = datetime.now(timezone.utc).astimezone()
 
