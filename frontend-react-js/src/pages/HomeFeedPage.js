@@ -7,6 +7,8 @@ import ActivityFeed from '../components/ActivityFeed';
 import ActivityForm from '../components/ActivityForm';
 import ReplyForm from '../components/ReplyForm';
 
+import { trace, context } from '@opentelemetry/api';
+
 // [TODO] Authenication
 import Cookies from 'js-cookie'
 
@@ -18,14 +20,13 @@ export default function HomeFeedPage() {
   const [user, setUser] = React.useState(null);
   const dataFetchedRef = React.useRef(false);
 
-  const opentelemetry = require("@opentelemetry/api");
-  const tracer = opentelemetry.trace.getTracer("homefeed_trace");
-
-  tracer.startActiveSpan('main', (span) => {
-    span.setAttribute('app.username', "my_name");
-
+  
     const loadData = async () => {
       try {
+        const tracer = trace.getTracer();
+        // create a span
+        const span = tracer.startSpan("getAllActivities");
+        span.setAttribute('timetamp', 'it started');
         const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/home`
         const res = await fetch(backend_url, {
           method: "GET"
@@ -33,6 +34,8 @@ export default function HomeFeedPage() {
         let resJson = await res.json();
         if (res.status === 200) {
           setActivities(resJson)
+          span.setAttribute('timetamp', 'it completed');
+          span.end();
         } else {
           console.log(res)
         }
@@ -87,7 +90,4 @@ export default function HomeFeedPage() {
         <DesktopSidebar user={user} />
       </article>
     );
-
-    span.end();
-  });
 }

@@ -16,12 +16,7 @@ import {
   RouterProvider
 } from "react-router-dom";
 
-const opentelemetry = require("@opentelemetry/api");
 
-function handleUser(user) {
-  let activeSpan = opentelemetry.trace.getActiveSpan();
-  activeSpan.setAttribute("user.id", user.getId());
-}
 const router = createBrowserRouter([
   {
     path: "/",

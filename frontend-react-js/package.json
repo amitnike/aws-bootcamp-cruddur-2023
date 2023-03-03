@@ -15,7 +15,11 @@
     "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4",
     "@honeycombio/opentelemetry-node":"",
-    "@opentelemetry/auto-instrumentations-node":""
+    "@opentelemetry/auto-instrumentations-node":"",
+    "@opentelemetry/api":"",
+    "@opentelemetry/sdk-trace-web":"",
+    "@opentelemetry/exporter-trace-otlp-http":"",
+    "@opentelemetry/context-zone":""
   },
   "scripts": {
     "start": "react-scripts start",
