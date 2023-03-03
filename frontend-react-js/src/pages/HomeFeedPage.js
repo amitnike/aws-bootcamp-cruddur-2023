@@ -24,9 +24,10 @@ export default function HomeFeedPage() {
     const loadData = async () => {
       try {
         const tracer = trace.getTracer();
+        Date().toLocaleString()
         // create a span
         const span = tracer.startSpan("getAllActivities");
-        span.setAttribute('timetamp', 'it started');
+        span.setAttribute('start_timetamp', Date().toLocaleString());
         const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/home`
         const res = await fetch(backend_url, {
           method: "GET"
@@ -34,7 +35,7 @@ export default function HomeFeedPage() {
         let resJson = await res.json();
         if (res.status === 200) {
           setActivities(resJson)
-          span.setAttribute('timetamp', 'it completed');
+          span.setAttribute('end_timetamp', Date().toLocaleString());
           span.end();
         } else {
           console.log(res)
