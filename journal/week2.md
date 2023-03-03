@@ -68,13 +68,82 @@ with tracer.start_as_current_span("home-activities-mock-data"):
 
 ```
 
-### View the traces on HoneyComb UI
+### View the traces on HoneyComb Dashoard
 
 ![image](https://user-images.githubusercontent.com/18515029/221756901-4c85ed13-c2f8-4f0f-943b-362642447de6.png)
 
 ![image](https://user-images.githubusercontent.com/18515029/221756996-46f88850-6d3e-43ab-b419-09af0aff4015.png)
 
 ![image](https://user-images.githubusercontent.com/18515029/221758317-8dd3fc91-0ba0-4574-b863-7e82e6c5ffa9.png)
+
+### Honeycomb instrumentation in React FrontEnd app
+
+Add tracing.js
+
+```
+
+import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-http';
+import { WebTracerProvider, BatchSpanProcessor } from '@opentelemetry/sdk-trace-web';
+import { ZoneContextManager } from '@opentelemetry/context-zone';
+import { Resource }  from '@opentelemetry/resources';
+import { SemanticResourceAttributes } from '@opentelemetry/semantic-conventions';
+
+const exporter = new OTLPTraceExporter({
+  url: 'https://api.honeycomb.io/v1/traces',
+  headers: {
+    "x-honeycomb-team": "ADD_YOUR_KEY",
+  },
+});
+const provider = new WebTracerProvider({
+  resource: new Resource({
+    [SemanticResourceAttributes.SERVICE_NAME]: 'browser',
+  }),
+});
+provider.addSpanProcessor(new BatchSpanProcessor(exporter));
+provider.register({
+  contextManager: new ZoneContextManager()
+});
+
+
+```
+
+Import tracing.js in application
+
+```
+import './App.css';
+
+```
+
+Update Homefeed js with instrumentation
+
+```
+import { trace } from '@opentelemetry/api';
+
+        const tracer = trace.getTracer();
+        Date().toLocaleString()
+        // create a span
+        const span = tracer.startSpan("getAllActivities");
+        span.setAttribute('start_timetamp', Date().toLocaleString());
+        
+        
+        ...
+        ...
+        
+        ....
+        
+        span.end();
+
+```
+
+### HoneyComb Dashobard
+
+![image](https://user-images.githubusercontent.com/18515029/222797377-e3c7b1d4-4500-44f3-9e59-1a8afe5ecec0.png)
+
+![image](https://user-images.githubusercontent.com/18515029/222797493-b999790f-fa85-4aac-9a4d-7412bfe1a27a.png)
+
+![image](https://user-images.githubusercontent.com/18515029/222797683-2c74d854-b855-44f7-b7bb-e412f222b8ae.png)
+
+![image](https://user-images.githubusercontent.com/18515029/222797791-348af1fd-c7df-4693-8aa9-84977be0b715.png)
 
 
 
