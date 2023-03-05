@@ -10,7 +10,7 @@ export default function ConfirmationPage() {
   const [code, setCode] = React.useState('');
   const [errors, setErrors] = React.useState('');
   const [codeSent, setCodeSent] = React.useState(false);
-  const [cognitoErrors, setCognitoErrors] = React.useState('');
+
 
   const params = useParams();
 
@@ -22,7 +22,7 @@ export default function ConfirmationPage() {
   }
 
   const resend_code = async (event) => {
-    setCognitoErrors('')
+    setErrors('')
     try {
       await Auth.resendSignUp(email);
       console.log('code resent successfully');
@@ -33,21 +33,21 @@ export default function ConfirmationPage() {
       // for this to be an okay match?
       console.log(err)
       if (err.message == 'Username cannot be empty'){
-        setCognitoErrors("You need to provide an email in order to send Resend Activiation Code")   
+        setErrors("You need to provide an email in order to send Resend Activiation Code")   
       } else if (err.message == "Username/client id combination not found."){
-        setCognitoErrors("Email is invalid or cannot be found.")   
+        setErrors("Email is invalid or cannot be found.")   
       }
     }
   }
 
   const onsubmit = async (event) => {
     event.preventDefault();
-    setCognitoErrors('')
+    setErrors('')
     try {
       await Auth.confirmSignUp(email, code);
       window.location.href = "/"
     } catch (error) {
-      setCognitoErrors(error.message)
+      setErrors(error.message)
     }
     return false
   }
