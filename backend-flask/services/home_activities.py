@@ -60,7 +60,7 @@ class HomeActivities:
           'likes': 1042,
           'replies': []
         }
-      results.insert(0,extra_crud)
+        results.insert(0,extra_crud)
       
       span.set_attribute("app.results_length",len(results))
       return results
