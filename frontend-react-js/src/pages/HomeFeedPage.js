@@ -31,7 +31,8 @@ export default function HomeFeedPage() {
         span.setAttribute('start_timetamp', Date().toLocaleString());
         const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/home`
         console.log('inside the homefeed1' , backend_url)
-        const auth_backend_url = `${process.env.AUTH_APP_URL}/api/validate`
+        //const auth_backend_url = `${process.env.AUTH_APP_URL}/api/validate`
+        const auth_backend_url = `https://3001-amitnike-awsbootcampcru-bopui05et79.ws-us89b.gitpod.io/api/validate`
         console.log('inside the homefeed2' , auth_backend_url)
         const res = await fetch(auth_backend_url, {
           headers: {
