@@ -30,7 +30,9 @@ export default function HomeFeedPage() {
         const span = tracer.startSpan("getAllActivities");
         span.setAttribute('start_timetamp', Date().toLocaleString());
         const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/home`
-        const auth_backend_url = `${process.env.AUTH_APP_URL}/api/validate`
+        console.log('inside the homefeed1' , backend_url)
+        const auth_backend_url = `https://3001-amitnike-awsbootcampcru-kmybjgo9f4h.ws-eu89.gitpod.io/api/validate`
+        console.log('inside the homefeed2' , auth_backend_url)
         const res = await fetch(auth_backend_url, {
           headers: {
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,

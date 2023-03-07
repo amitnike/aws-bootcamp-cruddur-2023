@@ -22,26 +22,7 @@ services:
       - "4567:4567"
     volumes:
       - ./backend-flask:/backend-flask
-
-  frontend-react-js:
-    environment:
-      REACT_APP_BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
-      OTEL_EXPORTER_OTLP_ENDPOINT: "https://api.honeycomb.io"
-      OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${HONEYCOMB_API_KEY}"
-      OTEL_SERVICE_NAME: "frontend_node"
-      REACT_APP_AWS_PROJECT_REGION : "${AWS_DEFAULT_REGION}"
-      # REACT_APP_AWS_COGNITO_IDENTITY_POOL_ID: ""
-      REACT_APP_AWS_COGNITO_REGION: "ap-south-1"
-      REACT_APP_AWS_USER_POOLS_ID: "ap-south-1_HvWBed4Mc"
-      REACT_APP_CLIENT_ID : "4a930ki8237113j3847gpuov0n"
-      AUTH_APP_URL : "https://3001-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
-
-    build: ./frontend-react-js
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./frontend-react-js:/frontend-react-js
-
+      
   node-jwt-validator:
     environment:
       REACT_APP_BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
@@ -59,6 +40,27 @@ services:
       - "3001:3001"
     volumes:
       - ./node-jwt-validator:/node-jwt-validator
+
+  frontend-react-js:
+    environment:
+      REACT_APP_BACKEND_URL: "https://4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+      AUTH_APP_URL: "https://3001-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}"
+      OTEL_EXPORTER_OTLP_ENDPOINT: "https://api.honeycomb.io"
+      OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${HONEYCOMB_API_KEY}"
+      OTEL_SERVICE_NAME: "frontend_node"
+      REACT_APP_AWS_PROJECT_REGION : "${AWS_DEFAULT_REGION}"
+      # REACT_APP_AWS_COGNITO_IDENTITY_POOL_ID: ""
+      REACT_APP_AWS_COGNITO_REGION: "ap-south-1"
+      REACT_APP_AWS_USER_POOLS_ID: "ap-south-1_HvWBed4Mc"
+      REACT_APP_CLIENT_ID : "4a930ki8237113j3847gpuov0n"
+
+    build: ./frontend-react-js
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend-react-js:/frontend-react-js
+
+
 
   # xray-daemon:
   #   image: "amazon/aws-xray-daemon"
