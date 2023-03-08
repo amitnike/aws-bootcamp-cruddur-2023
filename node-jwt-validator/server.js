@@ -17,8 +17,6 @@ const verifier = CognitoJwtVerifier.create({
   });
 
 
-
-
 // Define the route for the API call by first validating it
 app.get('/api/validate', async (req, res) => {
     try {
@@ -31,14 +29,7 @@ app.get('/api/validate', async (req, res) => {
         console.log(jwtToken);
         const payload = await verifier.verify(jwtToken);
         console.log(payload);
-        const backendurl = req.headers.BakcendURL;
-        console.log(backendurl);
-        // if (!backendurl) {
-        //     return res.status(400).send('Invalid Request');
-        // }
-        //const url = backendurl.split(' ')[1];
         const url = `https://4567-amitnike-awsbootcampcru-bopui05et79.ws-us89b.gitpod.io/api/activities/home`
-        console.log(url);
         // If token is valid, make API call with token in Authorization header
         const response = await axios.get(url, {});
         console.log(response.data);
