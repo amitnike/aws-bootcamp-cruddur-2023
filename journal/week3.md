@@ -84,9 +84,7 @@ EXPOSE 3001
 CMD ["npm", "start"]
 
 ```
-### Verification
-
-### Launch HomePage by running the app...Backend API call is not made as JWT verification is failed
+### Verification -: Launch HomePage by running the app...Backend API call is not made as JWT verification is failed
 
 ![image](https://user-images.githubusercontent.com/18515029/223761695-465bfce3-b1e5-4249-9e2f-9287549d6bc0.png)
 
@@ -99,6 +97,20 @@ CMD ["npm", "start"]
 ![image](https://user-images.githubusercontent.com/18515029/223763044-7a0cd656-92b7-44ee-8dfe-dcd5dd5abbff.png)
 
 
+## Implement MFA for sign-in
 
+### Enable MFA 
+
+![image](https://user-images.githubusercontent.com/18515029/223768695-1227c134-1dda-4d8f-92d5-ecfaaab24fd3.png)
+
+### Update MFA configs
+
+![image](https://user-images.githubusercontent.com/18515029/223770740-5c06f99f-b5cb-48a4-ae84-862e826d51f0.png)
+
+### Getting error MFA and resolution
+
+message: User does not have delivery config set to turn on SOFTWARE_TOKEN_MFA
+
+![image](https://user-images.githubusercontent.com/18515029/223771859-a56869ed-33e2-4fd3-8f3d-2d51fb14711e.png)
 
 
