@@ -29,7 +29,7 @@ app.get('/api/validate', async (req, res) => {
         console.log(jwtToken);
         const payload = await verifier.verify(jwtToken);
         console.log(payload);
-        const url = `https://4567-amitnike-awsbootcampcru-bopui05et79.ws-us89b.gitpod.io/api/activities/home`
+        const url = `https://4567-amitnike-awsbootcampcru-4knpx6j16pl.ws-us89b.gitpod.io/api/activities/home`
         // If token is valid, make API call with token in Authorization header
         const response = await axios.get(url, {});
         console.log(response.data);
