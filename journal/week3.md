@@ -119,6 +119,7 @@ message: User does not have delivery config set to turn on SOFTWARE_TOKEN_MFA
 
 ![image](https://user-images.githubusercontent.com/18515029/223782680-653dc465-6e32-49cb-b062-b8e9e116ab49.png)
 
+![Screenshot from 2023-03-08 22-52-59](https://user-images.githubusercontent.com/18515029/223806910-b145d2ee-2d84-4e7e-94f8-a60d3cf88381.png)
 
 
 ## New user pool with IDP (Google).
