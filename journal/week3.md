@@ -117,6 +117,9 @@ message: User does not have delivery config set to turn on SOFTWARE_TOKEN_MFA
 
 ![image](https://user-images.githubusercontent.com/18515029/223781255-7085398b-725b-4fcd-948b-77eacb7ff3b8.png)
 
+![image](https://user-images.githubusercontent.com/18515029/223782680-653dc465-6e32-49cb-b062-b8e9e116ab49.png)
+
+
 
 
 
