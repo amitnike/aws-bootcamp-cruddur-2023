@@ -154,6 +154,9 @@ https://cruddur.auth.ap-south-1.amazoncognito.com/login?response_type=code&clien
 
 ![image](https://user-images.githubusercontent.com/18515029/223799057-03634637-c893-4fdc-8ec2-1d87f4b3eeb7.png)
 
-    
+### User pool updated after successful login
+
+![image](https://user-images.githubusercontent.com/18515029/223801591-8701fa6f-860b-429a-86c3-e24aaf2490c3.png)
+
 
 
