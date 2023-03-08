@@ -121,5 +121,39 @@ message: User does not have delivery config set to turn on SOFTWARE_TOKEN_MFA
 
 
 
+## New user pool with IDP (Google).
+
+### New user pool created
+
+![image](https://user-images.githubusercontent.com/18515029/223796086-8c029ea8-82cf-42e9-9b3f-2c17ff3351ac.png)
+
+### Set up the project and get the new creds from Google cloud platform console
+
+![image](https://user-images.githubusercontent.com/18515029/223796404-8feb42a4-7055-44aa-99b0-ff21f4d472bf.png)
+
+
+### Add a social IdP to your user pool
+
+![image](https://user-images.githubusercontent.com/18515029/223796730-c64eb19a-d6eb-478a-8776-6c24810ac50a.png)
+
+
+![image](https://user-images.githubusercontent.com/18515029/223797006-4072b9dc-86c9-4428-adbe-d7d8bb751e63.png)
+
+
+### Verification -: Test your social IdP configuration
+
+Enter url -:
+
+```
+https://cruddur.auth.ap-south-1.amazoncognito.com/login?response_type=code&client_id=<client ID>&redirect_uri=https://www.google.com
+
+```
+
+![image](https://user-images.githubusercontent.com/18515029/223798791-98519c7a-a020-4284-b983-26699c13f31a.png)
+
+
+![image](https://user-images.githubusercontent.com/18515029/223799057-03634637-c893-4fdc-8ec2-1d87f4b3eeb7.png)
+
+    
 
 
