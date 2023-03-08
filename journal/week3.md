@@ -97,7 +97,7 @@ CMD ["npm", "start"]
 ![image](https://user-images.githubusercontent.com/18515029/223763044-7a0cd656-92b7-44ee-8dfe-dcd5dd5abbff.png)
 
 
-## Implement MFA for sign-in
+## Implement MFA with TOTP for sign-in
 
 ### Enable MFA 
 
@@ -112,5 +112,11 @@ CMD ["npm", "start"]
 message: User does not have delivery config set to turn on SOFTWARE_TOKEN_MFA
 
 ![image](https://user-images.githubusercontent.com/18515029/223771859-a56869ed-33e2-4fd3-8f3d-2d51fb14711e.png)
+
+![image](https://user-images.githubusercontent.com/18515029/223780298-788c6a99-525f-48be-99e9-690296314783.png)
+
+![image](https://user-images.githubusercontent.com/18515029/223781255-7085398b-725b-4fcd-948b-77eacb7ff3b8.png)
+
+
 
 
