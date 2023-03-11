@@ -18,6 +18,20 @@ export default function SigninPage() {
       Auth.signIn(email, password)
         .then(user => {
           console.log('user',user)
+          if (
+            user.challengeName === 'SOFTWARE_TOKEN_MFA'
+          ) {
+            // You need to get the code from the UI inputs
+            // and then trigger the following function with a button click
+            const code = prompt('Please enter your MFA code')
+            // If MFA is enabled, sign-in should be confirmed with the confirmation code
+            const loggedUser =  Auth.confirmSignIn(
+              user, // Return object from Auth.signIn()
+              code, // Confirmation code
+              'SOFTWARE_TOKEN_MFA' // MFA Type e.g. SMS_MFA, SOFTWARE_TOKEN_MFA
+            );
+            console.log('loggedUser',loggedUser)
+          }   
           localStorage.setItem("access_token", user.signInUserSession.accessToken.jwtToken)
           window.location.href = "/"
         })
