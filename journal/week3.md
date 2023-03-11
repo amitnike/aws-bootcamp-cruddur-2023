@@ -121,7 +121,41 @@ message: User does not have delivery config set to turn on SOFTWARE_TOKEN_MFA
 
 ![Screenshot from 2023-03-08 22-52-59](https://user-images.githubusercontent.com/18515029/223806910-b145d2ee-2d84-4e7e-94f8-a60d3cf88381.png)
 
+### MFA verification from UI
 
+![image](https://user-images.githubusercontent.com/18515029/224485384-10fd03d1-2520-4eb1-938b-842e4bc4d01d.png)
+
+### Enter wrong code
+
+![image](https://user-images.githubusercontent.com/18515029/224485423-8ae95707-5ede-4dce-b584-659015ee8fa2.png)
+
+### Enter correct MFA code, successful verification...but error to read access token
+
+![image](https://user-images.githubusercontent.com/18515029/224485511-6d9c7091-5be6-4f35-8aa0-6ae96af7a925.png)
+
+
+### code
+
+```
+
+         {
+            // You need to get the code from the UI inputs
+            // and then trigger the following function with a button click
+            const code = prompt('Please enter your MFA code')
+            // If MFA is enabled, sign-in should be confirmed with the confirmation code
+            const loggedUser =  Auth.confirmSignIn(
+              user, // Return object from Auth.signIn()
+              code, // Confirmation code
+              'SOFTWARE_TOKEN_MFA' // MFA Type e.g. SMS_MFA, SOFTWARE_TOKEN_MFA
+            );
+            console.log('loggedUser',loggedUser)
+          }   
+          localStorage.setItem("access_token", user.signInUserSession.accessToken.jwtToken)
+          window.location.href = "/"
+        })
+        
+
+```
 ## New user pool with IDP (Google).
 
 ### New user pool created
