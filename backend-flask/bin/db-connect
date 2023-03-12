@@ -6,10 +6,11 @@ LABEL="db-connect"
 printf "${CYAN}== ${LABEL}${NO_COLOR}\n"
 
 
-if["$1" = "prod"]; then
+if ["$1" = "prod"]; then
     echo "using production"
     CON_URL=$PROD_CONNECTION_URL
 else
     CON_URL=$CONNECTION_URL
+fi
 
 psql $CON_URL
