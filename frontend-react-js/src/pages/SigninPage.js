@@ -31,8 +31,11 @@ export default function SigninPage() {
               'SOFTWARE_TOKEN_MFA' // MFA Type e.g. SMS_MFA, SOFTWARE_TOKEN_MFA
             );
             console.log('loggedUser',loggedUser)
-          }   
-          localStorage.setItem("access_token", user.signInUserSession.accessToken.jwtToken)
+            console.log('jwttoken',loggedUser.signInUserSession.accessToken.jwtToken)
+            localStorage.setItem("access_token", loggedUser.signInUserSession.accessToken.jwtToken)
+          }  else {
+            localStorage.setItem("access_token", user.signInUserSession.accessToken.jwtToken)
+          } 
           window.location.href = "/"
         })
         .catch(error => { 
