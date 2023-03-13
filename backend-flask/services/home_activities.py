@@ -24,16 +24,13 @@ class HomeActivities:
       LEFT JOIN public.users ON users.uuid = activities.user_uuid
       ORDER BY activities.created_at DESC
     """)
-    print("SQL--------------")
     print(sql)
-    print("SQL--------------")
     with pool.connection() as conn:
       with conn.cursor() as cur:
         cur.execute(sql)
         # this will return a tuple
         # the first field being the data
         json = cur.fetchone()
-    print("-1----")
     print(json[0])
     return json[0]
     return results
