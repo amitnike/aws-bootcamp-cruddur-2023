@@ -43,6 +43,9 @@ class CreateActivity:
       }   
     else:
       expires_at = (now + ttl_offset)
+      print('***')
+      
+      print(user_handle)
       uuid = CreateActivity.create_activity(user_handle,message,expires_at)
 
       object_json = CreateActivity.query_object_activity(uuid)
@@ -58,6 +61,7 @@ class CreateActivity:
     })
     return uuid
   
+
   def query_object_activity(uuid):
     sql = db.template('activities','object')
     return db.query_object_json(sql,{
