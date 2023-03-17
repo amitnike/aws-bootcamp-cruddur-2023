@@ -34,7 +34,7 @@ aws rds create-db-instance \
 
 ### Connecting to RDS and setup the schema  
 
-### Connecting to RDS and setup the schema  See my [About](//backend-flask/bin/db-connect)/) page for details.   
+### Connecting to RDS and setup the schema  See  [DB-Connect](/(https://github.com/amitnike/aws-bootcamp-cruddur-2023/blob/main/backend-flask/bin/db-connect)/)  for source.   
 
 
 ### Connect to Database
