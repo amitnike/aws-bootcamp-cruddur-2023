@@ -61,3 +61,39 @@ aws rds create-db-instance \
 
 ![image](https://user-images.githubusercontent.com/18515029/225879075-05ceea36-c4cb-4933-b38b-20023b3df9c0.png)
 
+## AWS Lambda Postconfirmation script
+
+### AWS Lamda 
+
+![image](https://user-images.githubusercontent.com/18515029/225880270-aa12954f-2da9-4f64-b466-b6e333d8aff7.png)
+
+
+### Post confirmation script
+
+### See  [DB-Connect](/backend-flask/lib/cognito_jwt_token.py)  for source. 
+
+### setup environment variables
+
+![image](https://user-images.githubusercontent.com/18515029/225880742-efafc94c-b36e-4fbf-89f3-1e80d91bdd28.png)
+
+
+### Update IAM role for this Lambda function
+
+![image](https://user-images.githubusercontent.com/18515029/225880963-046883b7-a1cb-49c7-b003-23c7908186ff.png)
+
+### Create the layer and link it to Lambda function
+
+![image](https://user-images.githubusercontent.com/18515029/225881790-7ebef9ca-3dc4-4efa-bfd8-0fd10098bb3e.png)
+
+Refer -: https://github.com/jkehler/awslambda-psycopg2  for more detail
+
+### Upon signup user getting added to the user pool as well as Users table
+
+![image](https://user-images.githubusercontent.com/18515029/225882527-975c1f42-565c-4a76-b298-f9fead989d24.png)
+
+![Screenshot from 2023-03-14 15-42-05](https://user-images.githubusercontent.com/18515029/225879232-520cb78b-5d5f-4e6f-aa5d-434180eb1ec8.png)
+
+
+
+
+
