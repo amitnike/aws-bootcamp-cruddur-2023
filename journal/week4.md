@@ -51,6 +51,13 @@ aws rds create-db-instance \
 
 ### Validate the connectivity from extension
 
+![Screenshot from 2023-03-14 15-42-05](https://user-images.githubusercontent.com/18515029/225879232-520cb78b-5d5f-4e6f-aa5d-434180eb1ec8.png)
+
 ### Validate the DB connectivity from shell
 
+![Screenshot from 2023-03-13 16-11-49](https://user-images.githubusercontent.com/18515029/225879148-2c90d12a-0b26-4a46-99e1-cf3213b84f88.png)
+
 ### Validate the RDS sg inbound rule update
+
+![image](https://user-images.githubusercontent.com/18515029/225879075-05ceea36-c4cb-4933-b38b-20023b3df9c0.png)
+
