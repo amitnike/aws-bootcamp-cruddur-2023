@@ -31,23 +31,26 @@ aws rds create-db-instance \
 
 ![image](https://user-images.githubusercontent.com/18515029/225875650-4784733c-e26f-4775-bdf5-f9f37bd62348.png)
 
-
-### Connecting to RDS and setup the schema  
-
-### Connecting to RDS and setup the schema  See  [DB-Connect](/backend-flask/bin/db-connect)  for source.   
+ 
+### Connecting to RDS and setup the schema    
 
 
-### Connect to Database
+### Connect to Database . See  [DB-Connect](/backend-flask/bin/db-connect)  for source. 
 
-### Create DB schema
+### Create DB schema. See  [Create-Schema](/backend-flask/bin/db-create)  for source. 
 
-### Drop existing schema
+### Drop existing schema. See  [Drop-Schema](/backend-flask/bin/db-drop)  for source. 
 
-### Create table
+### Create table. [Schema-load](/backend-flask/bin/db-schema-load)  for source. 
 
-### Add data to tables
+### Add data to tables. [Add-Data](/backend-flask/bin/db-seed)  for source. 
 
-### Complete setup in 1 go
+### Complete setup in 1 go. [Setup-1-go](/backend-flask/bin/db-setup)  for source. 
 
-### Modify security group to provide access to GITPOD IP to the RDS Instance 
+### Modify security group to provide access to GITPOD IP to the RDS Instance [RDS-Access](/backend-flask/bin/rds-update-sg-rule)  for source. 
 
+### Validate the connectivity from extension
+
+### Validate the DB connectivity from shell
+
+### Validate the RDS sg inbound rule update
