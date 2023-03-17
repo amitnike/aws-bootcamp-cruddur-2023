@@ -70,7 +70,7 @@ aws rds create-db-instance \
 
 ### Post confirmation script
 
-### See  [DB-Connect](/backend-flask/lib/cognito_jwt_token.py)  for source. 
+### See  [cognito fuction](/aws/lambdas/cruddur-post-confirmation.py)  for source. 
 
 ### setup environment variables
 
