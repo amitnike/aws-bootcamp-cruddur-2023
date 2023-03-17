@@ -61,6 +61,7 @@ aws rds create-db-instance \
 
 ![image](https://user-images.githubusercontent.com/18515029/225879075-05ceea36-c4cb-4933-b38b-20023b3df9c0.png)
 
+
 ## AWS Lambda Postconfirmation script
 
 ### AWS Lamda 
@@ -94,6 +95,16 @@ Refer -: https://github.com/jkehler/awslambda-psycopg2  for more detail
 ![Screenshot from 2023-03-14 15-42-05](https://user-images.githubusercontent.com/18515029/225879232-520cb78b-5d5f-4e6f-aa5d-434180eb1ec8.png)
 
 
+## Post User activity
 
+### Update code chages to post the activity
+
+### changes to home_activity.py to pull the activities using DB call
+
+### Changes to create_activity.py to post a tweet
+
+### db.py file added for all DB operations
+
+### app.py update to remove hard code user
 
 
