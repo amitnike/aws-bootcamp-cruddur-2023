@@ -39,5 +39,37 @@ First the get the user uuid from psotgres
 
 
 
+## Part 3 -: 
+
+### Create DyanmoDB table on AWS
+
+![image](https://user-images.githubusercontent.com/18515029/227580667-bf5db1c1-e728-463f-9c34-6a3aa3280329.png)
+
+![image](https://user-images.githubusercontent.com/18515029/227580744-a75b83b3-2bd1-445a-b3e5-2b4ff14fa720.png)
+
+### Enable Stream
+
+![image](https://user-images.githubusercontent.com/18515029/227581264-7babb3ff-b4c6-4690-a646-d1772f23966d.png)
+
+
+### Create VPC Gateway endpoint for dynamodb service
+
+![image](https://user-images.githubusercontent.com/18515029/227582271-3b3c25f6-674d-4bfd-bf8b-64aa1627c057.png)
+
+
+### Attach DynamoDB specific policy to Lambda Function
+
+![image](https://user-images.githubusercontent.com/18515029/227585012-be4b9bf1-5b51-4c19-a21a-ed851ff9e1cd.png)
+
+
+![image](https://user-images.githubusercontent.com/18515029/227584750-3cb829ad-fa9e-4388-b8d2-8156bf8bcc1c.png)
+
+### Create Trigger for Dynamodb with given Lambda function
+
+![image](https://user-images.githubusercontent.com/18515029/227586014-dd443e6d-2f4a-4e29-b8e5-72fd0b966461.png)
+
+### Testing Pending
+
+
 
 
