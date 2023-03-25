@@ -77,6 +77,15 @@ UI Distorted
 
 ![image](https://user-images.githubusercontent.com/18515029/227725580-681f5da4-47cc-425a-8846-5979355ba975.png)
 
+### Mesage posted + verified
+
+![image](https://user-images.githubusercontent.com/18515029/227726880-73217bce-ca39-41c0-8a2a-dd068ee162a8.png)
+
+### New mesage Group with 3rd user
+
+![image](https://user-images.githubusercontent.com/18515029/227727338-c1c3b163-633a-4eb3-a494-c54efb398044.png)
+
+
 
 ## Part 3 -: 
 
