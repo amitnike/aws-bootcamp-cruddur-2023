@@ -73,9 +73,10 @@ UI Distorted
 ![image](https://user-images.githubusercontent.com/18515029/227716650-1f3c0902-0baf-4be5-84c6-57f767b055f5.png)
 
 
+### Message Posted successfully, Unable to view it in list. Working on it
 
+![image](https://user-images.githubusercontent.com/18515029/227725580-681f5da4-47cc-425a-8846-5979355ba975.png)
 
-### Changes to app.py + message_group.py files (access pattern 1)
 
 ## Part 3 -: 
 
