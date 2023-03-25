@@ -37,7 +37,45 @@ First the get the user uuid from psotgres
 
 ![image](https://user-images.githubusercontent.com/18515029/226871408-bbe9cab7-b876-4a76-8838-0f8afd966981.png)
 
+## Part 2 -:
 
+### List cognito users from pool
+
+![image](https://user-images.githubusercontent.com/18515029/227713980-80884399-7bff-43a2-9df3-415e2abc2638.png)
+
+### Postgres localDB seed 
+
+![image](https://user-images.githubusercontent.com/18515029/227713414-0ce0c271-8d74-4c08-abc7-df6f74676abc.png)
+
+### Update Cognito UUID as well as username for local run
+
+![image](https://user-images.githubusercontent.com/18515029/227715857-a190b5e0-c3ec-4c55-922d-7a36399a7df5.png)
+
+### Seed local dynamoDB data with minor modification to script
+
+![image](https://user-images.githubusercontent.com/18515029/227716018-6add0554-4fb0-43b7-a86b-9dec08dca0d7.png)
+
+### Message group displayed
+
+![image](https://user-images.githubusercontent.com/18515029/227716068-6beced39-9cd6-4911-8490-7bb997b80f74.png)
+
+
+### List the conversations 
+
+![image](https://user-images.githubusercontent.com/18515029/227716174-609dbe2c-968b-4255-aa51-4df42830b907.png)
+
+### Post the message
+
+![image](https://user-images.githubusercontent.com/18515029/227716637-ffc00664-a397-40d5-b910-4ced1c35fdbc.png)
+
+UI Distorted
+
+![image](https://user-images.githubusercontent.com/18515029/227716650-1f3c0902-0baf-4be5-84c6-57f767b055f5.png)
+
+
+
+
+### Changes to app.py + message_group.py files (access pattern 1)
 
 ## Part 3 -: 
 
@@ -63,6 +101,11 @@ First the get the user uuid from psotgres
 
 
 ![image](https://user-images.githubusercontent.com/18515029/227584750-3cb829ad-fa9e-4388-b8d2-8156bf8bcc1c.png)
+
+### Correction - Create new inline policy and attach it (remove full access dynamoDB)
+
+![image](https://user-images.githubusercontent.com/18515029/227713054-346c3e92-a979-4f47-a9fa-f3a69c4f9981.png)
+
 
 ### Create Trigger for Dynamodb with given Lambda function
 
