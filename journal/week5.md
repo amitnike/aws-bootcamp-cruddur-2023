@@ -121,7 +121,18 @@ UI Distorted
 
 ![image](https://user-images.githubusercontent.com/18515029/227586014-dd443e6d-2f4a-4e29-b8e5-72fd0b966461.png)
 
+![image](https://user-images.githubusercontent.com/18515029/227727695-e3b3a6c1-9243-4d6a-b4b9-2ee992d92c29.png)
+
+
 ### Testing Pending
+
+![image](https://user-images.githubusercontent.com/18515029/227729809-184bc9b1-66cc-499f-a036-8eaf5e8747b3.png)
+
+
+### CloudWatch logs
+
+![image](https://user-images.githubusercontent.com/18515029/227729830-61eaf8a3-aa26-4c62-aafb-e74787395506.png)
+
 
 
 
