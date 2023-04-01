@@ -1,5 +1,4 @@
 docker/**/*
+frontend-react-js/build/*
 frontend-react-js/package-lock.json
-.gitignore
-hello-world-rest-api/target/*
-node-jwt-validator/node_modules/*
+
