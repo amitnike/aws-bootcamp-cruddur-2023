@@ -1,0 +1,23 @@
+#! /user/bin/bash
+
+if [ -z "$1" ]; then
+  echo "No TASK_ID argument supplied"
+  exit 1
+fi
+
+TASK_ID=$1
+
+CYAN='\033[1;36m'
+NO_COLOR='\033[0m'
+LABEL="connect-to-backend-service"
+printf "${CYAN}== ${LABEL}${NO_COLOR}\n"
+
+echo "TASK_ID : $TASK_ID"
+
+aws ecs execute-command  \
+--region ap-south-1 \
+--cluster cruddur \
+--task $TASK_ID \
+--container backned-flask \
+--command "/bin/sh" \
+--interactive
