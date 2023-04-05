@@ -13,5 +13,7 @@ echo $(pwd)
 source "$DB_PATH/bin/db/drop"
 source "$DB_PATH/bin/db/create"
 source "$DB_PATH/bin/db/schema-load"
+DB_PATH=$(pwd)
+echo $(pwd)
 source "$DB_PATH/bin/db/seed"
 python "$DB_PATH/bin/db/update_cognito_user_ids"
