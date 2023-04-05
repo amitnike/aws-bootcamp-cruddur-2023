@@ -1,8 +1,10 @@
 #! /usr/bin/bash
 
+echo $(readlink -f "$0")
 ABS_PATH=$(readlink -f "$0")
 BIN_PATH=$(dirname $ABS_PATH)
-PROJECT_PATH=$(dirname $BIN_PATH)
+echo $(pwd)
+PROJECT_PATH=$(pwd)
 FRONTEND_REACT_JS_PATH="$PROJECT_PATH/frontend-react-js"
 
 docker build \
