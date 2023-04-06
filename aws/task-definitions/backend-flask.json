@@ -5,6 +5,19 @@
     "networkMode": "awsvpc",
     "containerDefinitions": [
       {
+        "name": "xray",
+        "image": "public.ecr.aws/xray/aws-xray-daemon" ,
+        "essential": true,
+        "user": "1337",
+        "portMappings": [
+          {
+            "name": "xray",
+            "containerPort": 2000,
+            "protocol": "udp"
+          }
+        ]
+      },
+      {
         "name": "backend-flask",
         "image": "885967230885.dkr.ecr.ap-south-1.amazonaws.com/backend-flask",
         "essential": true,
