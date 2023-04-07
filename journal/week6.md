@@ -221,6 +221,17 @@ In order to validate the service deployment, we can connect to containerId under
 ./bin/frontend/connect
 ```
 
+![image](https://user-images.githubusercontent.com/18515029/230595137-ac6303eb-05c7-4a10-9367-818d2ff01651.png)
+
+Frontend service Task and its containers
+
+![image](https://user-images.githubusercontent.com/18515029/230595278-8caad032-0bf3-4d24-b36b-98a6b2dbe0d2.png)
+
+Backend service Tasks and containers
+
+![image](https://user-images.githubusercontent.com/18515029/230595392-4109dff7-21dc-4592-a937-4b5084e001ff.png)
+
+
 ## Purchase Domain name and Host the application using Route53
 
 Get the Domain Name
