@@ -259,3 +259,11 @@ Update the Frontend and backend taks definition to include Xray Deamon
 Update the ECS cluster to enable container insights
 
 View the container insights under Cloudwatch
+
+![image](https://user-images.githubusercontent.com/18515029/230594571-fe76254f-a8b4-4e89-b75a-1358c9020c3c.png)
+
+![image](https://user-images.githubusercontent.com/18515029/230594690-c05940bf-b4e0-408f-835e-8ed8e012b26e.png)
+
+![image](https://user-images.githubusercontent.com/18515029/230594814-9af2bfa7-6762-415c-a138-bf039a282f25.png)
+
+
