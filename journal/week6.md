@@ -278,3 +278,11 @@ View the container insights under Cloudwatch
 ![image](https://user-images.githubusercontent.com/18515029/230594814-9af2bfa7-6762-415c-a138-bf039a282f25.png)
 
 
+## Applcation Health check and accessbile over browser
+
+![image](https://user-images.githubusercontent.com/18515029/230596697-4aa2fc85-e8ea-410a-a5fa-172ce192efa7.png)
+
+![image](https://user-images.githubusercontent.com/18515029/230596659-2915eb9d-ad33-49dc-9499-28bab9214a18.png)
+
+![image](https://user-images.githubusercontent.com/18515029/230596772-be75e0f4-5c16-44cc-9680-019314f3f2ca.png)
+
