@@ -240,7 +240,7 @@ for i in range(len(lines)):
   create_message(
     client=dynamodb,
     message_group_uuid= message_group_uuid,
-    created_at=created_at.isoformat(),,
+    created_at=created_at.isoformat(),
     message=message,
     my_user_uuid=users[key]['uuid'],
     my_user_display_name=users[key]['display_name'],
