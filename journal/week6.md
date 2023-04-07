@@ -33,6 +33,13 @@ aws ecr create-repository \
  --repository-name frontend-react-js \
  --image-tag-mutability MUTABLE
 ```
+![image](https://user-images.githubusercontent.com/18515029/230594122-c0885e33-daaa-41e0-99b1-8fad2c37d73b.png)
+
+![image](https://user-images.githubusercontent.com/18515029/230594167-529be590-6100-4249-9500-d69e0146d7b0.png)
+
+![image](https://user-images.githubusercontent.com/18515029/230594235-6923242b-c765-42a5-a786-12ec64d41748.png)
+
+
 ## Setting env variable to run AWS CLI Commands
 
 ```sh
@@ -124,18 +131,38 @@ aws iam attach-role-policy --policy-arn arn:aws:iam::aws:policy/AWSXRayDaemonWri
 
 ## Setting up the Load balancer , Target Groups  and security group configs
 
-- Basic configurations: name `cruddur-alb`, Internet-facing, IPv4 address type;
+- Basic configurations: name `cruddur-alb`, Internet-facing, IPv4 address type
+- 
+![image](https://user-images.githubusercontent.com/18515029/230593794-0a8fa7f8-43ea-47b9-a8a8-07e747743aa4.png)
+
+
+- Listeners configuration
+![image](https://user-images.githubusercontent.com/18515029/230593660-0192ab1d-e0f2-4a18-857a-4ba8949280eb.png)
+
+
 - Network mapping: default VPC, select first three availability zones;
 - Security groups: create a new security group named `cruddur-alb-sg`, 
     set inbound rules of HTTP and HTTPS from the  source from Anywhere (For security purpose it needs to set from your own IP);
+    
+    ![image](https://user-images.githubusercontent.com/18515029/230593474-ef41699a-5fbf-4cc8-b821-2db28a8e4be1.png)
+
 - Security groups: create a new security group named `cruddur-srv-sg`, 
     set inbound rules of Custom TCP of 4567 and 3000 from the port source from `cruddur-alb-sg`;
+    
+    ![image](https://user-images.githubusercontent.com/18515029/230593552-22fa89b3-1e99-454b-9019-ac094f11829c.png)
+
   
 - Target Group + Listeners with HC: 
   - HTTP:4567 with a new target group named `cruddur-backend-flask-tg`, select type as IP addresses, set HTTP:4567, set health check as `/api/health-check` with 3 healthy threshold, get its arn to put in `aws/json/service-backend-flask.json`
+
+![image](https://user-images.githubusercontent.com/18515029/230593909-f422cbb0-a9f1-4448-8e93-a36abe2ecff7.png)
+
   
   - HTTP:3000 with another target group created named `cruddur-frontend-react-js-tg`
     set 3 healthy threshold, get its arn to put in `aws/json/service-frontend-react-js.json`.
+    
+ ![image](https://user-images.githubusercontent.com/18515029/230593949-18ae6af4-e1b2-40fd-835f-f5b59a16b91c.png)
+
 
 ## Passing env variable to AWS 
 
@@ -195,6 +222,19 @@ In order to validate the service deployment, we can connect to containerId under
 ```
 
 ## Purchase Domain name and Host the application using Route53
+
+Get the Domain Name
+
+![image](https://user-images.githubusercontent.com/18515029/230593049-eceff7ef-00b2-429b-9982-dd44353bb959.png)
+
+Setup the hosted zone
+
+![image](https://user-images.githubusercontent.com/18515029/230593211-367e7070-97ad-4d32-8835-16d3ac33dd14.png)
+
+Setup the A records for API as well as UI app
+
+![image](https://user-images.githubusercontent.com/18515029/230593296-0e9e257a-b398-491a-9250-9f107332f17e.png)
+
 
 ## Container Insights
 
