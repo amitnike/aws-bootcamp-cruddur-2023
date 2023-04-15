@@ -1,0 +1,9 @@
+#! /usr/bin/bash
+
+echo $(pwd)
+PROJECT_PATH=$(pwd)
+SERVERLESS_PROJECT_PATH="$PROJECT_PATH/bin/avatar"
+DATA_FILE_PATH="$SERVERLESS_PROJECT_PATH/files/data.jpg"
+
+aws s3 rm "s3://avn-cruddur-uploaded-avatars/avatars/original/data.jpg"
+aws s3 rm "s3://assets.$DOMAIN_NAME/avatars/processed/data.jpg"

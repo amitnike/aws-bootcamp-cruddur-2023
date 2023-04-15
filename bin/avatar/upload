@@ -1,0 +1,8 @@
+#! /usr/bin/bash
+
+echo $(pwd)
+PROJECT_PATH=$(pwd)
+SERVERLESS_PROJECT_PATH="$PROJECT_PATH/bin/avatar"
+DATA_FILE_PATH="$SERVERLESS_PROJECT_PATH/files/data.jpg"
+
+aws s3 cp "$DATA_FILE_PATH" "s3://avn-cruddur-uploaded-avatars/data.jpg"
