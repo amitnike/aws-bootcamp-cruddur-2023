@@ -2,3 +2,4 @@ docker/**/*
 frontend-react-js/build/*
 frontend-react-js/package-lock.json
 *.env
+node_modules
