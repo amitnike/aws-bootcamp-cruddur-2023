@@ -17,3 +17,4 @@ DB_PATH=$(pwd)
 echo $(pwd)
 source "$DB_PATH/bin/db/seed"
 python "$DB_PATH/bin/db/update_cognito_user_ids"
+python "$DB_PATH/migrate"
