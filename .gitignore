@@ -4,3 +4,5 @@ frontend-react-js/package-lock.json
 *.env
 node_modules
 .vscode/settings.json
+aws/lambdas/cruddur-upload-avatar/vendor/*
+aws/lambdas/cruddur-upload-avatar/.bundle/config
