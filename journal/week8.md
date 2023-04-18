@@ -289,8 +289,188 @@ Policy attached image processing lambda function
 * Choose the previously created ACM for the Custom SSL certificate.
 * Give a description and click Create.
 
-  ![image](https://user-images.githubusercontent.com/18515029/232864667-d6e50fe4-9a42-489f-b6bc-d7247c1b6a68.png)
+![image](https://user-images.githubusercontent.com/18515029/232864667-d6e50fe4-9a42-489f-b6bc-d7247c1b6a68.png)
 
-  ![image](https://user-images.githubusercontent.com/18515029/232864731-69df1068-64eb-4c01-ae63-a4ba4dad3b0c.png)
+![image](https://user-images.githubusercontent.com/18515029/232864731-69df1068-64eb-4c01-ae63-a4ba4dad3b0c.png)
+
+# Implement Avatar Uploading
+Pre-signed URL Lambda
+
+* Create a new function in Lambda.
+* In API Gateway, select HTTP API and click Build.
+* Click Add integration and choose Lambda.
+* Name the integration CruddurAvatarUpload.
+* Select the Ruby 2.7 runtime.
+* Choose Create a new role with basic Lambda permissions for the default execution role.
+* Create the function.
+  
+Create aws/lambdas/cruddur-upload-avatar/function.rb
+  
+```
+require 'aws-sdk-s3'
+require 'json'
+require 'jwt'
+
+def handler(event:, context:)
+  puts event
+  # return cors headers for preflight check
+  if event['routeKey'] == "OPTIONS /{proxy+}"
+    puts({step: 'preflight', message: 'preflight CORS check'}.to_json)
+    { 
+      headers: {
+        "Access-Control-Allow-Headers": "*, Authorization",
+        "Access-Control-Allow-Origin": "https://3000-amitnike-awsbootcampcru-eb1xpvxb2qm.ws-us94.gitpod.io",
+        "Access-Control-Allow-Methods": "OPTIONS,GET,POST"
+      },
+      statusCode: 200
+    }
+  else
+    token = event['headers']['authorization'].split(' ')[1]
+    puts({step: 'presignedurl', access_token: token}.to_json)
+
+    body_hash = JSON.parse(event["body"])
+    extension = body_hash["extension"]
+
+    decoded_token = JWT.decode token, nil, false
+    cognito_user_uuid = decoded_token[0]['sub']
+
+    s3 = Aws::S3::Resource.new
+    bucket_name = ENV["UPLOADS_BUCKET_NAME"]
+    object_key = "#{cognito_user_uuid}.#{extension}"
+
+    puts({object_key: object_key}.to_json)
+
+    obj = s3.bucket(bucket_name).object(object_key)
+    url = obj.presigned_url(:put, expires_in: 60 * 5)
+    url # this is the data that will be returned
+    body = {url: url}.to_json
+    { 
+      headers: {
+        "Access-Control-Allow-Headers": "*, Authorization",
+        "Access-Control-Allow-Origin": "https://3000-amitnike-awsbootcampcru-eb1xpvxb2qm.ws-us94.gitpod.io",
+        "Access-Control-Allow-Methods": "OPTIONS,GET,POST"
+      },
+      statusCode: 200, 
+      body: body 
+    }
+  end # if 
+end # def handle
+  
+```
+  
+Update the Gemfile and run bundle install
+  
+```
+  
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+# gem "rails"
+gem "aws-sdk-s3"
+gem "ox"
+  
+```
+  
+* Add the code from above file to create a lambda function
+* Add the UPLOADS_BUCKET_NAME environment variable to the Lambda function.
+* Change the Lambda runtime handler to function.handler.
+* Rename the file to function.rb.
+* Run a test to check that everything is working as expected.
+  
+policy to attach 
+  
+```
+ {
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "VisualEditor0",
+      "Effect": "Allow",
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::<bucket_name>/*"
+    }
+  ]
+} 
+  
+```
+  
+# Lambda Authorizer
+  
+Create a new file called index.js in the aws/lambdas/lambda_authorizer directory. 
+This Lambda function will be used to authorize API Gateway requests.
+Create the zip and create lambda fuction
+
+
+
+```
+  
+  "use strict";
+const { CognitoJwtVerifier } = require("aws-jwt-verify");
+//const { assertStringEquals } = require("aws-jwt-verify/assert");
+
+const jwtVerifier = CognitoJwtVerifier.create({
+  userPoolId: process.env.USER_POOL_ID,
+  tokenUse: "access",
+  clientId: process.env.CLIENT_ID, //,
+  //customJwtCheck: ({ payload }) => {
+  //  assertStringEquals("e-mail", payload["email"], process.env.USER_EMAIL);
+  //},
+});
+
+exports.handler = async (event) => {
+  console.log("request:", JSON.stringify(event, undefined, 2));
+
+  const auth = event.headers.authorization;
+  const jwt = auth.split(" ")[1];
+
+  try {
+    const payload = await jwtVerifier.verify(jwt);
+    console.log("Access allowed. JWT payload:", payload);
+  } catch (err) {
+    console.error("Access forbidden:", err);
+    return {
+      isAuthorized: false,
+    };
+  }
+
+  return {
+    isAuthorized: true,
+  };
+};
+  
+```
+# API Gateway
+  
+* Select HTTP APIs in the API Gateway console
+* Choose Build
+* Select Lambda from the Add integration dropdown and choose the CruddurUploadAvatar lambda function
+* Enter the API name as api.<domain_name>
+* Click Next
+* Change the resource path to /avatars/key_upload
+* Set the method to POST
+* Click Next, Next, and Create
+* Select Authorization from the left pane
+* Go to Manage authorizers and click Create
+* Choose Lambda as the authorizer type, give it a name, and select the lambda authorizer function
+* Turn off Authorizer caching
+* Click Create
+* From Attach authorizers to routes tab, click on POST
+* Select the lambda authorizer from the "Select existing authorizer" dropdown
+* Click Attach Authorizer
+* Copy the invoke URL from the API page
+
+  ![image](https://user-images.githubusercontent.com/18515029/232869136-2a92d2de-673b-4ef4-8e38-22d35d4cae76.png)
+
+  ![image](https://user-images.githubusercontent.com/18515029/232869233-92e0286b-b02a-4c5c-91d8-48891c27a68b.png)
+
+  ![image](https://user-images.githubusercontent.com/18515029/232869272-a08743e8-4edd-4ec4-9b35-c975cc0ef7bb.png)
+  
+  ![image](https://user-images.githubusercontent.com/18515029/232869362-4032ca62-bd2c-4627-a381-59756adf5b4c.png)
+  
+  ![image](https://user-images.githubusercontent.com/18515029/232869430-49a80b89-ac58-40d6-ab65-79af1082e777.png)
+
+
+
 
 
