@@ -467,8 +467,20 @@ exports.handler = async (event) => {
   ![image](https://user-images.githubusercontent.com/18515029/232869272-a08743e8-4edd-4ec4-9b35-c975cc0ef7bb.png)
   
   ![image](https://user-images.githubusercontent.com/18515029/232869362-4032ca62-bd2c-4627-a381-59756adf5b4c.png)
+
+  # User Uploaded Avatar Testing
   
+  Buckets
+  
+  ![image](https://user-images.githubusercontent.com/18515029/232870256-a2804b90-4f99-4d67-a156-1a68cb009faa.png)
+
+  ![image](https://user-images.githubusercontent.com/18515029/232870367-6059b2c4-d738-4a8d-a213-2a1fef61bdcd.png)
+
   ![image](https://user-images.githubusercontent.com/18515029/232869430-49a80b89-ac58-40d6-ab65-79af1082e777.png)
+  
+  Browser UI -:
+  
+  
 
 
 
