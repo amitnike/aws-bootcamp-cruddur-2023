@@ -289,7 +289,8 @@ Set the Alternate domain name (CNAME) to assets.<domain>.
 Choose the previously created ACM for the Custom SSL certificate.
 Give a description and click Create.
 
-![image](https://user-images.githubusercontent.com/18515029/232863364-43d9957f-936c-4d17-8045-8ae1c3cd6288.png)
+  ![image](https://user-images.githubusercontent.com/18515029/232864667-d6e50fe4-9a42-489f-b6bc-d7247c1b6a68.png)
 
-![image](https://user-images.githubusercontent.com/18515029/232863476-6ba0be77-bb92-4840-bbe4-45579731c593.png)
+  ![image](https://user-images.githubusercontent.com/18515029/232864731-69df1068-64eb-4c01-ae63-a4ba4dad3b0c.png)
+
 
