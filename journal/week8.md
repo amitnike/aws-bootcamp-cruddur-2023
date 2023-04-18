@@ -266,7 +266,30 @@ S3 Buckets
 
 ![image](https://user-images.githubusercontent.com/18515029/232861718-9ca279c9-9e04-4ed7-accf-d9792ef84fad.png)
 
+Policy attached image processing lambda function
+
+![image](https://user-images.githubusercontent.com/18515029/232862354-5060afb2-7f23-46c0-8002-975ebc4bbdc7.png)
 
 
+# Serving content over CloudFront 
 
+On the clodfront console , Set the Origin domain to point to the assets.<domain>S3 bucket.
+Choose Origin access control settings (recommended) and create a control setting.
+Select Redirect HTTP to HTTPS for the viewer protocol policy.
+Choose CORS-CustomOrigin for the optional Origin request policy.
+Choose SimpleCORS for the optional Response headers policy.
+Set the Alternate domain name (CNAME) to assets.<domain>.
+Choose the previously created ACM for the Custom SSL certificate.
+Give a description and click Create.
+Choose Origin access control settings (recommended) and create a control setting.
+Select Redirect HTTP to HTTPS for the viewer protocol policy.
+Choose CORS-CustomOrigin for the optional Origin request policy.
+Choose SimpleCORS for the optional Response headers policy.
+Set the Alternate domain name (CNAME) to assets.<domain>.
+Choose the previously created ACM for the Custom SSL certificate.
+Give a description and click Create.
+
+![image](https://user-images.githubusercontent.com/18515029/232863364-43d9957f-936c-4d17-8045-8ae1c3cd6288.png)
+
+![image](https://user-images.githubusercontent.com/18515029/232863476-6ba0be77-bb92-4840-bbe4-45579731c593.png)
 
