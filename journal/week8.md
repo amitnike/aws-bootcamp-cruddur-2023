@@ -273,21 +273,21 @@ Policy attached image processing lambda function
 
 # Serving content over CloudFront 
 
-On the clodfront console , Set the Origin domain to point to the assets.<domain>S3 bucket.
-Choose Origin access control settings (recommended) and create a control setting.
-Select Redirect HTTP to HTTPS for the viewer protocol policy.
-Choose CORS-CustomOrigin for the optional Origin request policy.
-Choose SimpleCORS for the optional Response headers policy.
-Set the Alternate domain name (CNAME) to assets.<domain>.
-Choose the previously created ACM for the Custom SSL certificate.
-Give a description and click Create.
-Choose Origin access control settings (recommended) and create a control setting.
-Select Redirect HTTP to HTTPS for the viewer protocol policy.
-Choose CORS-CustomOrigin for the optional Origin request policy.
-Choose SimpleCORS for the optional Response headers policy.
-Set the Alternate domain name (CNAME) to assets.<domain>.
-Choose the previously created ACM for the Custom SSL certificate.
-Give a description and click Create.
+* On the clodfront console , Set the Origin domain to point to the assets.<domain>S3 bucket.
+* Choose Origin access control settings (recommended) and create a control setting.
+* Select Redirect HTTP to HTTPS for the viewer protocol policy.
+* Choose CORS-CustomOrigin for the optional Origin request policy.
+* Choose SimpleCORS for the optional Response headers policy.
+* Set the Alternate domain name (CNAME) to assets.<domain>.
+* Choose the previously created ACM for the Custom SSL certificate.
+* Give a description and click Create.
+* Choose Origin access control settings (recommended) and create a control setting.
+* Select Redirect HTTP to HTTPS for the viewer protocol policy.
+* Choose CORS-CustomOrigin for the optional Origin request policy.
+* Choose SimpleCORS for the optional Response headers policy.
+* Set the Alternate domain name (CNAME) to assets.<domain>.
+* Choose the previously created ACM for the Custom SSL certificate.
+* Give a description and click Create.
 
   ![image](https://user-images.githubusercontent.com/18515029/232864667-d6e50fe4-9a42-489f-b6bc-d7247c1b6a68.png)
 
