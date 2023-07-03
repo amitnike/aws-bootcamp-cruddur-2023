@@ -5,6 +5,7 @@ frontend-react-js/package-lock.json
 node_modules
 .aws-sam
 build.toml
+tmp/*
 .vscode/settings.json
 aws/lambdas/cruddur-upload-avatar/vendor/*
 aws/lambdas/cruddur-upload-avatar/.bundle/config
