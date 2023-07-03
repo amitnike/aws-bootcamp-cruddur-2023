@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-set -e # stop the execution of the script if it fails
+#set -e # stop the execution of the script if it fails
 
 CFN_PATH="$(pwd)/aws/cfn/cicd/template.yaml"
 CONFIG_PATH="$(pwd)/aws/cfn/cicd/config.toml"
