@@ -6,7 +6,7 @@ Description: |
 Parameters:
   GitHubBranch:
     Type: String
-    Default: main
+    Default: prod
   GithubRepo:
     Type: String
     Default: 'amitnike/aws-bootcamp-cruddur-2023'

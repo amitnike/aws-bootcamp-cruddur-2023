@@ -6,6 +6,6 @@ stack_name = 'CrdCicd'
 [parameters]
 ServiceStack = 'CrdSrvBackendFlask'
 ClusterStack = 'CrdCluster'
-GitHubBranch = 'main'
-GithubRepo = 'aws-bootcamp-cruddur-2023'
+GitHubBranch = 'prod'
+GithubRepo = 'amitnike/aws-bootcamp-cruddur-2023'
 ArtifactBucketName = "avn-codepipeline-cruddur-artifacts"
