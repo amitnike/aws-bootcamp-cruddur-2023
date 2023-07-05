@@ -1,0 +1,10 @@
+[deploy]
+bucket = 'avn-cfn-artifacts'
+region = 'ap-south-1'
+stack_name = 'CrdFrontend'
+
+[parameters]
+CertificateArn = 'arn:aws:acm:us-east-1:885967230885:certificate/59e40bfa-8b6b-4ddc-b9ee-e14ffdd4c89d'
+WwwBucketName = 'www.testcruddur.click'
+RootBucketName = 'testcruddur.click'
+

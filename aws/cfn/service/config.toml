@@ -1,0 +1,8 @@
+[deploy]
+bucket = 'avn-cfn-artifacts'
+region = 'ap-south-1'
+stack_name = 'CrdSrvBackendFlask'
+
+[parameters]
+EnvFrontendUrl = 'https://testcruddur.click'
+EnvBackendUrl = 'https://api.testcruddur.click'

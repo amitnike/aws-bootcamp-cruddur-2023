@@ -20,7 +20,9 @@ services:
       AWS_COGNITO_USER_POOL_ID: "ap-south-1_HvWBed4Mc"
       AWS_COGNITO_USER_POOL_CLIENT_ID: "4a930ki8237113j3847gpuov0n"   
       
-    build: ./backend-flask
+    build:
+      context:  ./backend-flask
+      dockerfile: Dockerfile
     ports:
       - "4567:4567"
     volumes:
