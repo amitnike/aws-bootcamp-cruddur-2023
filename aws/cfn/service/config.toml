@@ -4,5 +4,5 @@ region = 'ap-south-1'
 stack_name = 'CrdSrvBackendFlask'
 
 [parameters]
-EnvFrontendUrl = 'testcruddur.click'
-EnvBackendUrl = 'api.testcruddur.click'
+EnvFrontendUrl = 'https://testcruddur.click'
+EnvBackendUrl = 'https://api.testcruddur.click'
