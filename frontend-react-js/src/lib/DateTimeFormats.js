@@ -7,7 +7,6 @@ export function format_datetime(value) {
 }
 
 export function message_time_ago(value){
-  console.log(value)
   const datetime = DateTime.fromISO(value, { zone: 'utc' })
   const created = datetime.setZone(Intl.DateTimeFormat().resolvedOptions().timeZone);
   const now     = DateTime.now()
