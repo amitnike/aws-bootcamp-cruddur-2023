@@ -1,4 +1,4 @@
-#! /user/bin/bash
+#! /bin/bash
 -e # stop if it fails at any point
 
 CYAN='\033[1;36m'
@@ -17,4 +17,4 @@ DB_PATH=$(pwd)
 echo $(pwd)
 source "$DB_PATH/bin/db/seed"
 python "$DB_PATH/bin/db/update_cognito_user_ids"
-python "$DB_PATH/migrate"
+python "$DB_PATH/bin/db/migrate"

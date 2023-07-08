@@ -20,8 +20,8 @@ puts "auto_approve:         false"
 
 puts "sync =="
 AwsS3WebsiteSync::Runner.run(
-  aws_access_key_id:     'XXXXXX',
-  aws_secret_access_key: 'XXXXXXXXX',
+  aws_access_key_id:     '*******',
+  aws_secret_access_key: '********',
   aws_default_region:    'ap-south-1',
   s3_bucket:             'testcruddur.click',
   distribution_id:       'E63VFTBOL3SC3',
