@@ -9,3 +9,9 @@ def load(app):
   #def rollbar_test():
   #  g.rollbar.report_message('Hello World!', 'warning')
   #  return "Hello World!"
+
+
+  @app.route('/rollbar/test')
+  def rollbar_test():
+    g.rollbar.report_message('Hello World!', 'warning')
+    return "Hello World!"
