@@ -217,6 +217,26 @@ View of CICD code build & code pipeline
 ![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/39974da3-3c8a-4090-b15f-f8a90079fde7)
 
 
+### AWS CloudFormation Security Best Practices
+
+
+AWS CFN Best Practices - AWS
+
+Compliance standard is what your business requires from a Infrastructure as Code (laC) service and is available in the region you need to operate in.
+Amazon Organizations SCP - to restrict actions like creation, deletion, modification of production Cloudformation Templates/Resources etc
+AWS CloudTrail is enabled & monitored to trigger alerts for malicious activities e.g changes to Production Environment etc
+AWS Audit Manager, IAM Access Analyzer etc
+AWS CFN Best Practices - Application
+
+Linting CFN
+Access Control - Roles or IAM Users for making changes in Amazon Cloudformation Template stacks or StackSets especially one for production.
+Security of the Cloudformation - Configuration access
+Security in the Cloudformation - Code Security Best Practices - SCA, SAST, Secret Scanner, DAST implemented in the CI/CD Pipeline
+Security of the CloudFormation entry points e.g - private access points using AWS Private Link etc
+Only use Trusted source control for sending changes to CFN
+Develop process for continuously verifying if there is a changes in compromise the known state of a CI/CD pipeline
+
+
 ### Diagramming
 
 
@@ -246,5 +266,137 @@ NetworkingStack = 'CrdNet'
 ```
 
 ### CFN Static Website Hosting - Frontend
-### AWS CloudFormation Security Best Practices
+
+
+
+CFN Script forFrontservice will help to create below items
+
+  - CloudFront Distribution
+  - S3 Bucket for www.
+  - S3 Bucket for naked domain
+  - Bucket Policy
+
+Script to execute the CFN
+
+```
+#! /usr/bin/env bash
+set -e # stop the execution of the script if it fails
+
+CFN_PATH="$(pwd)/aws/cfn/frontend/template.yaml"
+CONFIG_PATH="$(pwd)/aws/cfn/frontend/config.toml"
+echo $CFN_PATH
+
+cfn-lint $CFN_PATH
+
+BUCKET=$(cfn-toml key deploy.bucket -t $CONFIG_PATH)
+REGION=$(cfn-toml key deploy.region -t $CONFIG_PATH)
+STACK_NAME=$(cfn-toml key deploy.stack_name -t $CONFIG_PATH)
+PARAMETERS=$(cfn-toml params v2 -t $CONFIG_PATH)
+
+aws cloudformation deploy \
+  --stack-name $STACK_NAME \
+  --s3-bucket $BUCKET \
+  --s3-prefix frontend \
+  --region $REGION \
+  --template-file "$CFN_PATH" \
+  --no-execute-changeset \
+  --tags group=cruddur-frontend \
+  --parameter-overrides $PARAMETERS \
+  --capabilities CAPABILITY_NAMED_IAM
+
+```
+Created bukcet as per the DNS for your webiste
+
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/20b3aa87-4b3c-42b8-a1e1-4ff740d54f9d)
+
+CFN stack 
+
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/79fdb50d-3d1e-41fc-9c95-cdea9e7ff0ec)
+
+CloufFront -:
+
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/bcdb68ae-53c8-468a-8f84-2aa63427243f)
+
+
+Script to prepare the static build and sync with cloudfront
+
+./bin/frontend/static-build
+
+```
+#! /usr/bin/bash
+
+ABS_PATH=$(readlink -f "$0")
+FRONTEND_PATH=$(dirname $ABS_PATH)
+BIN_PATH=$(dirname $FRONTEND_PATH)
+PROJECT_PATH=$(dirname $BIN_PATH)
+echo $(pwd)
+PROJECT_PATH=$(pwd)
+FRONTEND_REACT_JS_PATH="$PROJECT_PATH/frontend-react-js"
+
+cd $FRONTEND_REACT_JS_PATH
+
+
+REACT_APP_BACKEND_URL="https://api.testcruddur.click" \
+REACT_APP_AWS_PROJECT_REGION="$AWS_DEFAULT_REGION" \
+REACT_APP_AWS_COGNITO_REGION="$AWS_DEFAULT_REGION" \
+REACT_APP_AWS_USER_POOLS_ID="ap-south-1_HvWBed4Mc" \
+REACT_APP_CLIENT_ID="4a930ki8237113j3847gpuov0n" \
+npm run build
+
+```
+./bin/frontend/sync
+
+```
+
+#!/usr/bin/env ruby
+
+require 'aws_s3_website_sync'
+require 'dotenv'
+
+env_path = "/home/amit/Documents/git/cruddur-app-2023/aws-bootcamp-cruddur-2023/bin/frontend/sync.env"
+Dotenv.load(env_path)
+
+puts "== configuration"
+puts "aws_default_region:   ap-south-1"
+puts "s3_bucket:            testcruddur.click"
+puts "distribution_id:      ******"
+puts "build_dir:            /home/amit/Documents/git/cruddur-app-2023/aws-bootcamp-cruddur-2023/frontend-react-js/build"
+
+changeset_path = '/home/amit/Documents/git/cruddur-app-2023/aws-bootcamp-cruddur-2023/tmp/sync-changeset.json'
+changeset_path = changeset_path.sub(".json","-#{Time.now.to_i}.json")
+
+puts "output_changset_path: #{changeset_path}"
+puts "auto_approve:         false"
+
+puts "sync =="
+AwsS3WebsiteSync::Runner.run(
+  aws_access_key_id:     '*******',
+  aws_secret_access_key: '*********',
+  aws_default_region:    'ap-south-1',
+  s3_bucket:             'testcruddur.click',
+  distribution_id:       '******',
+  build_dir:             '/home/amit/Documents/git/cruddur-app-2023/aws-bootcamp-cruddur-2023/frontend-react-js/build',
+  output_changset_path:  changeset_path,
+  auto_approve:          'false',
+  silent: "ignore,no_change",
+  ignore_files: [
+    'stylesheets/index',
+    'android-chrome-192x192.png',
+    'android-chrome-256x256.png',
+    'apple-touch-icon-precomposed.png',
+    'apple-touch-icon.png',
+    'site.webmanifest',
+    'error.html',
+    'favicon-16x16.png',
+    'favicon-32x32.png',
+    'favicon.ico',
+    'robots.txt',
+    'safari-pinned-tab.svg'
+  ]
+)
+```
+
+
+
+
 
