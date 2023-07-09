@@ -163,6 +163,12 @@ The RDS DB  for Cruddur backend -:
 
 ![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/734a8eea-8e83-4c23-a5ea-18b702e34443)
 
+
+Networking Diagram
+
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/816b5382-7020-4a6a-8317-d54c6d23de54)
+
+
 ### CFN DyanmoDB using SAM
 ### CFN Services 
 ### CFN CICD
