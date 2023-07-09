@@ -51,11 +51,13 @@ The CFN output is as below -:
 
 ![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/d9041204-00d6-4f9d-83b5-6691475de2e5)
 
-
 The VPC -:
 
 ![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/97def2a9-8c5a-4091-b67c-d94a45b793be)
 
+The networking MAP of VPC -:
+
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/6ebfa8dd-8076-4b69-95d5-ac2a1606cc4a)
 
 
 ### ECS Cluster CFN
@@ -116,6 +118,51 @@ The ECS cluster for Cruddur backend -:
 
 
 ### CFN RDS
+
+The RDS CFN willgenearte the below compoenents 
+
+  The primary Postgres RDS Database for the application
+  - RDS Instance
+  - Database Security Group
+  - DBSubnetGroup
+
+The executable script takes the template.yaml as well as config.toml 
+
+```
+#! /usr/bin/env bash
+set -e # stop the execution of the script if it fails
+
+CFN_PATH="$(pwd)/aws/cfn/db/template.yaml"
+CONFIG_PATH="$(pwd)/aws/cfn/db/config.toml"
+echo $CFN_PATH
+
+cfn-lint $CFN_PATH
+
+BUCKET=$(cfn-toml key deploy.bucket -t $CONFIG_PATH)
+REGION=$(cfn-toml key deploy.region -t $CONFIG_PATH)
+STACK_NAME=$(cfn-toml key deploy.stack_name -t $CONFIG_PATH)
+PARAMETERS=$(cfn-toml params v2 -t $CONFIG_PATH)
+
+aws cloudformation deploy \
+  --stack-name $STACK_NAME \
+  --s3-bucket $BUCKET \
+  --s3-prefix db \
+  --region $REGION \
+  --template-file "$CFN_PATH" \
+  --no-execute-changeset \
+  --tags group=cruddur-db \
+  --parameter-overrides $PARAMETERS MasterUserPassword=$DB_PASSWORD \
+  --capabilities CAPABILITY_NAMED_IAM
+```
+
+The CFN DB  output generated as below -:
+
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/ec68f79a-099e-4fb6-8bc5-f6fcaa395d92)
+
+The RDS DB  for Cruddur backend -:
+
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/734a8eea-8e83-4c23-a5ea-18b702e34443)
+
 ### CFN DyanmoDB using SAM
 ### CFN Services 
 ### CFN CICD
