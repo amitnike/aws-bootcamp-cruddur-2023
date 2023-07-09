@@ -169,13 +169,4 @@ Networking Diagram
 ![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/816b5382-7020-4a6a-8317-d54c6d23de54)
 
 
-### CFN DyanmoDB using SAM
-### CFN Services 
-### CFN CICD
-### Diagramming
-### CFN TOML
-### CFN Static Website Hosting - Frontend
-### AWS CloudFormation Security Best Practices
-
-
 
