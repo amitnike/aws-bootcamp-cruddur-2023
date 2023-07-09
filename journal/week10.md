@@ -167,6 +167,9 @@ The RDS DB  for Cruddur backend -:
 ### CFN Services 
 ### CFN CICD
 ### Diagramming
+### CFN TOML
+### CFN Static Website Hosting - Frontend
+### AWS CloudFormation Security Best Practices
 
 
 
