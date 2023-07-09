@@ -79,3 +79,9 @@ AwsS3WebsiteSync::Runner.run(
   ]
 )
 ```
+
+The cache invalidation after the latest content changes
+
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/1840ffdc-0306-444c-a511-399ea02b3125)
+
+
