@@ -84,4 +84,26 @@ The cache invalidation after the latest content changes
 
 ![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/1840ffdc-0306-444c-a511-399ea02b3125)
 
+New users added and Posts are visible
+
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/c04e7706-85ca-4010-ba55-e7a6d0c8a927)
+
+CORS issue resolved
+
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/ccc888e4-6cb9-4616-b652-0f30b6bd102b)
+
+E2E working code pipeline
+
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/b5f5ae8a-22e5-4ac6-84b1-f9d307ac56db)
+
+Creating reply to messages
+
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/ac5bfe22-3c87-4ffd-b9f3-4c0930e6c953)
+
+Notifications -:
+
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/1f9d09f9-ae6e-4fda-9e6a-53d96121a392)
+
+Profile -:
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/42b7b717-e577-4c67-9aa9-4025a6c45d3b)
 
