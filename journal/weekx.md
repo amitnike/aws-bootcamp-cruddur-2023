@@ -88,5 +88,10 @@ New users added and Posts are visible
 
 ![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/c04e7706-85ca-4010-ba55-e7a6d0c8a927)
 
+CORS issue resolved
+
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/ccc888e4-6cb9-4616-b652-0f30b6bd102b)
+
+
 
 
