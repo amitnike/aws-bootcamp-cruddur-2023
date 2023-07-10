@@ -84,4 +84,9 @@ The cache invalidation after the latest content changes
 
 ![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/1840ffdc-0306-444c-a511-399ea02b3125)
 
+New users added and Posts are visible
+
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/c04e7706-85ca-4010-ba55-e7a6d0c8a927)
+
+
 
