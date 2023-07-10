@@ -92,6 +92,8 @@ CORS issue resolved
 
 ![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/ccc888e4-6cb9-4616-b652-0f30b6bd102b)
 
+E2E working code pipeline
 
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/b5f5ae8a-22e5-4ac6-84b1-f9d307ac56db)
 
 
