@@ -100,3 +100,6 @@ Creating reply to messages
 
 ![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/ac5bfe22-3c87-4ffd-b9f3-4c0930e6c953)
 
+Notifications -:
+
+![image](https://github.com/amitnike/aws-bootcamp-cruddur-2023/assets/18515029/1f9d09f9-ae6e-4fda-9e6a-53d96121a392)
